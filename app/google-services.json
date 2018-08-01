@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "475103938967",
+    "firebase_url": "https://nazam-3069b.firebaseio.com",
+    "project_id": "nazam-3069b",
+    "storage_bucket": "nazam-3069b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475103938967:android:f0ccd7f2a79f94af",
+        "android_client_info": {
+          "package_name": "com.iakstudios.app.nazam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475103938967-rk4petfejd20mcai7gn41gnkmuqvkjck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iakstudios.app.nazam",
+            "certificate_hash": "eea99a989034fecab2fbc388333ae2e023e19291"
+          }
+        },
+        {
+          "client_id": "475103938967-f4t1b6veuhigq78a5h6tr7h64s1alhr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9YndqPk0ad52Ql1OiozPaSn1uYnN4pMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475103938967-f4t1b6veuhigq78a5h6tr7h64s1alhr0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
