@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Nazam</string>
+    <string name="type_prompt">Choose a role</string>
+    <string-array name="role">
+        <item>hajj</item>
+        <item>Bus</item>
+        <item>Paramedic</item>
+
+    </string-array>
 </resources>
