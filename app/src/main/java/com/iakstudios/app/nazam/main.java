@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class main extends AppCompatActivity {
-    TextView txt_lat,txt_lang;
+    TextView txt_lat, txt_lang;
     Button my;
     private LocationManager locationManager;
     private LocationListener listener;
@@ -27,9 +27,9 @@ public class main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m);
-        txt_lat=(TextView)findViewById(R.id.lat);
-        txt_lang=(TextView)findViewById(R.id.longt);
-        my=(Button)findViewById(R.id.mylocation);
+        txt_lat = (TextView) findViewById(R.id.lat);
+        txt_lang = (TextView) findViewById(R.id.longt);
+        my = (Button) findViewById(R.id.mylocation);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -37,9 +37,9 @@ public class main extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                txt_lang.setText("/n"+location.getLongitude());
-                txt_lat.setText("/n"+location.getLatitude());
-                Log.d("myloc",""+location.getLongitude()+" "+location.getLatitude());
+                txt_lang.append("/n" + location.getLongitude());
+                txt_lat.append("/n" + location.getLatitude());
+                Log.d("myloc", "" + location.getLongitude() + " " + location.getLatitude());
             }
 
             @Override
@@ -65,7 +65,7 @@ public class main extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case 10:
                 configure_button();
                 break;
@@ -74,12 +74,12 @@ public class main extends AppCompatActivity {
         }
     }
 
-    void configure_button(){
+    void configure_button() {
         // first check for permissions
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET}
-                        ,10);
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
+                        , 10);
             }
             return;
         }
@@ -88,6 +88,16 @@ public class main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //noinspection MissingPermission
+                if (ActivityCompat.checkSelfPermission(main.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(main.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 locationManager.requestLocationUpdates("gps", 5000, 0, listener);
             }
         });
