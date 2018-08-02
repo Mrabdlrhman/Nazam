@@ -56,6 +56,12 @@ public class main extends AppCompatActivity implements
     private long UPDATE_INTERVAL = 4 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
+<<<<<<< HEAD
+=======
+public class main extends AppCompatActivity {
+    TextView txt_lat, txt_lang;
+    Button my;
+>>>>>>> a5f6572a868419334704a497f33bf07eb68fa64a
     private LocationManager locationManager;
     Location location;
     public  String chang;
@@ -68,6 +74,12 @@ public class main extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m);
+<<<<<<< HEAD
+=======
+        txt_lat = (TextView) findViewById(R.id.lat);
+        txt_lang = (TextView) findViewById(R.id.longt);
+        my = (Button) findViewById(R.id.mylocation);
+>>>>>>> a5f6572a868419334704a497f33bf07eb68fa64a
 
         mLatitudeTextView = (TextView) findViewById((R.id.latitude_textview));
         mLongitudeTextView = (TextView) findViewById((R.id.longitude_textview));
@@ -79,7 +91,17 @@ public class main extends AppCompatActivity implements
         specs = (LinearLayout) findViewById(R.id.specs);
 
 
+<<<<<<< HEAD
         subData=(TextView) findViewById(R.id.sub_data);
+=======
+        listener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                txt_lang.append("/n" + location.getLongitude());
+                txt_lat.append("/n" + location.getLatitude());
+                Log.d("myloc", "" + location.getLongitude() + " " + location.getLatitude());
+            }
+>>>>>>> a5f6572a868419334704a497f33bf07eb68fa64a
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -183,6 +205,7 @@ public class main extends AppCompatActivity implements
     }
 
     @Override
+<<<<<<< HEAD
     protected void onStart() {
         super.onStart();
         if (mGoogleApiClient != null) {
@@ -218,6 +241,45 @@ public class main extends AppCompatActivity implements
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
                 mLocationRequest, this);
         Log.d("reque", "--->>>>");
+=======
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 10:
+                configure_button();
+                break;
+            default:
+                break;
+        }
+    }
+
+    void configure_button() {
+        // first check for permissions
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
+                        , 10);
+            }
+            return;
+        }
+        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
+        my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //noinspection MissingPermission
+                if (ActivityCompat.checkSelfPermission(main.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(main.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                locationManager.requestLocationUpdates("gps", 5000, 0, listener);
+            }
+        });
+>>>>>>> a5f6572a868419334704a497f33bf07eb68fa64a
     }
 
     @Override
