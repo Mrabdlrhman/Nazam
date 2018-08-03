@@ -6,46 +6,51 @@ import java.util.List;
 
 public class userInfo {
     public String name,role;
-    public int mobile;
+    public String mobile;
     public ArrayList<locate> locations;
 
-    public userInfo(String name, String role, int mobile,ArrayList<locate> locations) {
+    public userInfo() {
+
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public ArrayList<locate> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<locate> locations) {
+        this.locations = locations;
+    }
+
+    public userInfo(String name, String role, String mobile, ArrayList<locate> locations) {
         this.name = name;
         this.role = role;
         this.mobile = mobile;
         this. locations= locations;
     }
-    public userInfo(ArrayList<locate> locations) {
 
-        this. locations= locations;
-    }
 }
-
-//class UserInformaions {
-//    String name;
-//    String mobile;
-//    String role;
-//
-//    public UserInformaions(String name, String mobile, String role){
-//        this.name = name;
-//        this.mobile = mobile;
-//        this.role = role;
-//    }
-//
-//}
-//
-//class UserLocation {
-//    String latitude;
-//    String longitude;
-//    UserLocation(String latitude, String longitude){
-//        this.latitude = latitude;
-//        this.longitude = longitude;
-//    }
-//}
-//
-//class Locations {
-//    UserLocation[] x= new UserLocation[1];
-//    Locations(UserLocation x){
-//        this.x[0] = x;
-//    }
-

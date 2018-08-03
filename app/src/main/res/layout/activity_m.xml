@@ -9,7 +9,11 @@
 
 
 
-
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 
 
@@ -33,10 +37,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/menu_icon" />
+                android:src="@drawable/logo" />
 
             <EditText
                 android:id="@+id/ed_name"
@@ -84,7 +88,7 @@
                 android:layout_margin="16dp"
                 android:gravity="center"
                 app:cardCornerRadius="10dp"
-                android:backgroundTint="#ff9800"
+                android:backgroundTint="#007f7b"
                 android:text="Login"
                 >
 
@@ -94,6 +98,7 @@
                     android:layout_height="match_parent"
                     android:text="Login"
                     android:gravity="center"
+                    android:textColor="#ffffff"
                     android:textSize="20dp"
                     android:textStyle="bold"/>
             </android.support.v7.widget.CardView>
@@ -107,7 +112,7 @@
         android:id="@+id/specs"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="#fff3e0"
+        android:background="#ffffff"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -119,9 +124,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="50dp"
+                    android:id="@+id/bus"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:src="@drawable/bus"
                     android:layout_margin="15dp"
@@ -131,6 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BUS"
+                    android:textColor="#007f7b"
                     android:textStyle="bold"/>
             </LinearLayout>
             <View
@@ -142,17 +151,21 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="50dp"
+                    android:id="@+id/hajj"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:src="@drawable/hajj"
+                    android:src="@drawable/camp"
                     android:layout_margin="15dp"
 
                     />
                 <TextView
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
+                    android:textColor="#007f7b"
                     android:layout_height="wrap_content"
                     android:text="HAJJ"
                     android:textStyle="bold"/>
@@ -164,10 +177,13 @@
                 android:layout_height="match_parent"/>
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="50dp"
+                    android:id="@+id/doctor"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:src="@drawable/doctor"
                     android:layout_margin="15dp"
@@ -178,6 +194,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MEDIC"
+                    android:textColor="#007f7b"
+
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
@@ -185,37 +203,23 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:layout_marginTop="10dp"
-            android:background="#ff9800"/>
+            android:background="#007f7b"/>
 
 
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/menu"
         android:visibility="gone"
+        android:id="@+id/menu"
         android:layout_below="@id/specs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#ff9800"
+        android:backgroundTint="#007f7b"
         android:src="@drawable/menu_icon" />
 
 
-    <TextView
-        android:id="@+id/latitude_textview"
-        android:layout_width="match_parent"
-        android:hint="lat"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/longitude_textview"
-        android:layout_width="match_parent"
-        android:hint="long"
-        android:layout_height="wrap_content"
-
-        android:textSize="16sp"
-        android:layout_below="@+id/latitude_textview" />
 
 </RelativeLayout>
